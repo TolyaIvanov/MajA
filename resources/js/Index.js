@@ -1,15 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export default class Index extends React.Component {
-	render() {
-		return (
-			<div className="container">
-				component
-			</div>
-		);
-	}
-}
+import Main from './components/Main'
 
-ReactDOM.render(<Index/>, document.getElementById('root'));
+ReactDOM.render(<Main/>, document.getElementById('root'));
 

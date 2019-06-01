@@ -13,3 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 Route::get('/', 'api\IndexController@index');
+Route::get('/polynoms', 'api\indexController@showAll');
