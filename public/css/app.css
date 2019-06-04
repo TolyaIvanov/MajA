@@ -2,15 +2,64 @@
   width: 640px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.form .polynom-input-wrapper {
+  height: 32px;
+  margin: 30px 0 10px 0;
+  width: inherit;
+}
+
+.form .polynom-input-wrapper .input {
+  padding: 0 8px;
+  width: 100%;
+  height: inherit;
+  font-size: 18px;
+}
+
+.form .send-button-wrapper {
+  align-self: flex-start;
+  width: 145px;
+}
+
+.form .send-button-wrapper .button {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  font-size: 16px;
+  padding: 0;
+  border: none;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.form .send-button-wrapper .button .button-text {
+  margin-left: 5px;
+}
+
+.form .send-button-wrapper .button:active {
+  color: #B6B6B6;
+}
+
+.form .send-button-wrapper .button:active svg {
+  fill: #B6B6B6;
+}
+
+.request-list {
+  margin-top: 25px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  background: #f6f2f2;
+  background: #f6f6f6;
   width: 100%;
   padding: 0 10%;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 
 body {

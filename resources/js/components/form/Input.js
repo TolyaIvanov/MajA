@@ -8,6 +8,9 @@ class Input extends React.Component{
 					type="text"
 					className={'input'}
 					required={'required'}
+					placeholder={'Введите строку'}
+					value={this.props.val}
+					onChange={this.props.change}
 				/>
 			</div>
 		);

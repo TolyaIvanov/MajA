@@ -2,7 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux'
 
 import Form from './form/Form'
-import RequestList from './requests/RequestList'
+import RequestListContainer from './../containers/requests/RequestListContaiiner';
 
 import store from './../store';
 
@@ -12,7 +12,7 @@ class Main extends React.Component {
 			<Provider store={store}>
 				<div className={'container'}>
 					<Form/>
-					<RequestList/>
+					<RequestListContainer/>
 				</div>
 			</Provider>
 		);

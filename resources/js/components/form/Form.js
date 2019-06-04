@@ -1,13 +1,13 @@
 import React from 'react';
 
 import SendRequestButtonContainer from './../../containers/form/SendRequestButtonContainer';
-import Input from './Input';
+import InputContainer from './../../containers/form/InputContainer';
 
 class Form extends React.Component {
 	render() {
 		return (
 			<form name={'polynom_field'} className={'form'}>
-				<Input/>
+				<InputContainer/>
 				<SendRequestButtonContainer/>
 			</form>
 		);

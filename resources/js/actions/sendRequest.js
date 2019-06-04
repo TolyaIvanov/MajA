@@ -7,6 +7,8 @@ import {
 	allRequestsIsLoading,
 } from "./actionCreator";
 
+import store from './../store';
+
 export const fetchPolynomList = (url) => {
 	return dispatch => {
 		dispatch(allRequestsIsLoading(true));
@@ -28,10 +30,20 @@ export const fetchPolynomList = (url) => {
 
 export const fetchOnePolynom = (url) => {
 	return dispatch => {
+		const input = {
+			value: store.getState().inputChanging
+		};
 
+		event.preventDefault();
 		dispatch(fetchPolynomIsLoading(true));
 
-		fetch(url)
+		fetch(url, {
+			method: 'POST',
+			body: JSON.stringify(input.value ? input : ''),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
 			.then(response => {
 				if (!response.ok) {
 					throw Error(response.statusText)

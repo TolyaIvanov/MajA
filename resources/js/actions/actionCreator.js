@@ -7,14 +7,14 @@ import {
 	REQUEST_IS_ACCPETED
 } from "../constants/defaultConstants";
 
-										// all requests
+// all requests
 export const fetchPolynomListSuccess = data => ({
-	type : LOAD_ALL_REQUESTS,
+	type: LOAD_ALL_REQUESTS,
 	data,
 });
 
 export const allRequestsIsLoading = isLoading => ({
-	type : ALL_REQUESTS_IS_LOADING,
+	type: ALL_REQUESTS_IS_LOADING,
 	isLoading
 });
 
@@ -25,11 +25,11 @@ export const fetchPolynom = data => ({
 });
 
 export const fetchPolynomIsLoading = isLoading => ({
-	type : REQUEST_IS_LOADING,
+	type: REQUEST_IS_LOADING,
 	isLoading
 });
 
-export const fetchPolynomIsAccepted= isAccepted => ({
-	type : REQUEST_IS_ACCPETED,
+export const fetchPolynomIsAccepted = isAccepted => ({
+	type: REQUEST_IS_ACCPETED,
 	isAccepted
 });

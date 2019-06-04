@@ -4,16 +4,18 @@
 @import 'variables';
 //files
 @import "form/form";
+@import "requests/requestList";
 
 .container {
 	display: flex;
 	flex-direction: column;
-	background: #f6f2f2;
+	background: #f6f6f6;
 	width: 100%;
 	padding: 0 10%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	min-height: 100vh;
 }
 
 body {

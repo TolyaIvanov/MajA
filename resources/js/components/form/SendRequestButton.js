@@ -1,16 +1,27 @@
 import React from 'react'
 import IconAdd from "../../SVGicons/IconAdd";
 
-class SendRequestButton extends React.Component{
+import {
+	DEFAULT_URL
+} from "../../constants/defaultConstants";
+
+class SendRequestButton extends React.Component {
 	render() {
+		const url = `${DEFAULT_URL}create`;
+
 		return (
 			<div className={'send-button-wrapper'}>
 				<button
 					type={'submit'}
 					className={'button'}
+					onClick={() => {
+						this.props.sendPolynom(url)
+					}}
 				>
-				<IconAdd/>
-				<span className={'button-text'}>
+					<IconAdd
+						width={'32px'}
+					/>
+					<span className={'button-text'}>
 					Отправить
 				</span>
 				</button>

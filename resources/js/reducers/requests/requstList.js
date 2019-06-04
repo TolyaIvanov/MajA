@@ -4,7 +4,7 @@ import {
 
 	LOAD_REQUEST_OF_POLYNOM,
 	REQUEST_IS_LOADING,
-	REQUEST_IS_ACCPETED
+	REQUEST_IS_ACCPETED,
 } from "../../constants/defaultConstants";
 
 export const fetchPolynomList = (state = [], {data, type}) => {

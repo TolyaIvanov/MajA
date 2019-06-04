@@ -4,32 +4,26 @@ import {connect} from "react-redux";
 import SendRequestButton from './../../components/form/SendRequestButton'
 
 import {
-	fetchPolynomList
+	fetchOnePolynom
 } from "../../actions/sendRequest";
 
 class SendRequestButtonContainer extends React.Component {
-	// componentDidMount() {
-	//
-	// }
-
 	render() {
-		let props = this.props;
-
-
 		return (
 			<SendRequestButton
-
+				isLoading={this.props.requestData}
+				sendPolynom={this.props.fetchNewPolynom}
 			/>
 		);
 	}
 }
 
 const mapStateToProps = (state) => ({
-	requestData: state.fetchPolynomList,
+	requestData: state.fetchPolynomIsLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	fetchData: (url) =>dispatch(fetchPolynomList(url))
+	fetchNewPolynom: (url) => dispatch(fetchOnePolynom(url))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SendRequestButtonContainer);
