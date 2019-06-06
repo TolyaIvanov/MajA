@@ -2,12 +2,12 @@ import {
 	LOAD_ALL_REQUESTS,
 	ALL_REQUESTS_IS_LOADING,
 
-	LOAD_REQUEST_OF_POLYNOM,
+	LOAD_REQUEST_OF_PALINDROME,
 	REQUEST_IS_LOADING,
 	REQUEST_IS_ACCPETED,
 } from "../../constants/defaultConstants";
 
-export const fetchPolynomList = (state = [], {data, type}) => {
+export const fetchPalindromeList = (state = [], {data, type}) => {
 	switch (type) {
 		case LOAD_ALL_REQUESTS :
 			return {
@@ -31,9 +31,9 @@ export const allRequestsIsLoading = (state = false, {isLoading, type}) => {
 	}
 };
 
-export const fetchPolynom = (state = [], {data, type}) => {
+export const fetchPalindrome = (state = [], {data, type}) => {
 	switch (type) {
-		case LOAD_REQUEST_OF_POLYNOM :
+		case LOAD_REQUEST_OF_PALINDROME :
 			return {
 				...state,
 				data
@@ -43,7 +43,7 @@ export const fetchPolynom = (state = [], {data, type}) => {
 	}
 };
 
-export const fetchPolynomIsLoading = (state = false, {isLoading, type}) => {
+export const fetchPalindromeIsLoading = (state = false, {isLoading, type}) => {
 	switch (type) {
 		case REQUEST_IS_LOADING :
 			return {
@@ -55,7 +55,7 @@ export const fetchPolynomIsLoading = (state = false, {isLoading, type}) => {
 	}
 };
 
-export const fetchPolynomIsAccepted = (state = false, {isAccepted, type}) => {
+export const fetchPalindromeIsAccepted = (state = false, {isAccepted, type}) => {
 	switch (type) {
 		case REQUEST_IS_ACCPETED :
 			return {

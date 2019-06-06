@@ -15,7 +15,7 @@ class SendRequestButton extends React.Component {
 					type={'submit'}
 					className={'button'}
 					onClick={() => {
-						this.props.sendPolynom(url)
+						this.props.sendPalindrome(url)
 					}}
 				>
 					<IconAdd

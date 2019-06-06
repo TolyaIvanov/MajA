@@ -28076,20 +28076,20 @@ var IconAdd = function IconAdd(_ref) {
 /*!***********************************************!*\
   !*** ./resources/js/actions/actionCreator.js ***!
   \***********************************************/
-/*! exports provided: fetchPolynomListSuccess, allRequestsIsLoading, fetchPolynom, fetchPolynomIsLoading, fetchPolynomIsAccepted */
+/*! exports provided: fetchPalindromeListSuccess, allRequestsIsLoading, fetchPalindrome, fetchPalindromeIsLoading, fetchPalindromeIsAccepted */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPolynomListSuccess", function() { return fetchPolynomListSuccess; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPalindromeListSuccess", function() { return fetchPalindromeListSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "allRequestsIsLoading", function() { return allRequestsIsLoading; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPolynom", function() { return fetchPolynom; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPolynomIsLoading", function() { return fetchPolynomIsLoading; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPolynomIsAccepted", function() { return fetchPolynomIsAccepted; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPalindrome", function() { return fetchPalindrome; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPalindromeIsLoading", function() { return fetchPalindromeIsLoading; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPalindromeIsAccepted", function() { return fetchPalindromeIsAccepted; });
 /* harmony import */ var _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/defaultConstants */ "./resources/js/constants/defaultConstants.js");
  // all requests
 
-var fetchPolynomListSuccess = function fetchPolynomListSuccess(data) {
+var fetchPalindromeListSuccess = function fetchPalindromeListSuccess(data) {
   return {
     type: _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_0__["LOAD_ALL_REQUESTS"],
     data: data
@@ -28102,19 +28102,19 @@ var allRequestsIsLoading = function allRequestsIsLoading(isLoading) {
   };
 }; //work with 1 request
 
-var fetchPolynom = function fetchPolynom(data) {
+var fetchPalindrome = function fetchPalindrome(data) {
   return {
-    type: _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_0__["LOAD_REQUEST_OF_POLYNOM"],
+    type: _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_0__["LOAD_REQUEST_OF_PALINDROME"],
     data: data
   };
 };
-var fetchPolynomIsLoading = function fetchPolynomIsLoading(isLoading) {
+var fetchPalindromeIsLoading = function fetchPalindromeIsLoading(isLoading) {
   return {
     type: _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_0__["REQUEST_IS_LOADING"],
     isLoading: isLoading
   };
 };
-var fetchPolynomIsAccepted = function fetchPolynomIsAccepted(isAccepted) {
+var fetchPalindromeIsAccepted = function fetchPalindromeIsAccepted(isAccepted) {
   return {
     type: _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_0__["REQUEST_IS_ACCPETED"],
     isAccepted: isAccepted
@@ -28148,19 +28148,19 @@ var inputChanging = function inputChanging(value) {
 /*!*********************************************!*\
   !*** ./resources/js/actions/sendRequest.js ***!
   \*********************************************/
-/*! exports provided: fetchPolynomList, fetchOnePolynom, fetchAccepted */
+/*! exports provided: fetchPalindromeList, fetchOnePalindrome, fetchAccepted */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPolynomList", function() { return fetchPolynomList; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchOnePolynom", function() { return fetchOnePolynom; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPalindromeList", function() { return fetchPalindromeList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchOnePalindrome", function() { return fetchOnePalindrome; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAccepted", function() { return fetchAccepted; });
 /* harmony import */ var _actionCreator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionCreator */ "./resources/js/actions/actionCreator.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../store */ "./resources/js/store.js");
 
 
-var fetchPolynomList = function fetchPolynomList(url) {
+var fetchPalindromeList = function fetchPalindromeList(url) {
   return function (dispatch) {
     dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["allRequestsIsLoading"])(true));
     fetch(url).then(function (response) {
@@ -28173,11 +28173,11 @@ var fetchPolynomList = function fetchPolynomList(url) {
     }).then(function (response) {
       return response.json();
     }).then(function (data) {
-      return dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynomListSuccess"])(data));
+      return dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPalindromeListSuccess"])(data));
     });
   };
 };
-var fetchOnePolynom = function fetchOnePolynom(url) {
+var fetchOnePalindrome = function fetchOnePalindrome(url) {
   return function (dispatch) {
     var input = {
       value: _store__WEBPACK_IMPORTED_MODULE_1__["default"].getState().inputChanging
@@ -28186,7 +28186,7 @@ var fetchOnePolynom = function fetchOnePolynom(url) {
     event.preventDefault();
 
     if (input.value.length >= 1) {
-      dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynomIsLoading"])(true));
+      dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPalindromeIsLoading"])(true));
       fetch(url, {
         method: 'POST',
         body: JSON.stringify(input.value ? input : ''),
@@ -28198,22 +28198,22 @@ var fetchOnePolynom = function fetchOnePolynom(url) {
           throw Error(response.statusText);
         }
 
-        dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynomIsLoading"])(false));
+        dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPalindromeIsLoading"])(false));
         dispatch(fetchAccepted());
         return response;
       }).then(function (response) {
         return response.json();
       }).then(function (data) {
-        return dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynom"])(data));
+        return dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPalindrome"])(data));
       });
     }
   };
 };
 var fetchAccepted = function fetchAccepted() {
   return function (dispatch) {
-    dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynomIsAccepted"])(true));
+    dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPalindromeIsAccepted"])(true));
     setTimeout(function () {
-      dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynomIsAccepted"])(false));
+      dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPalindromeIsAccepted"])(false));
     }, 3000);
   };
 };
@@ -28244,7 +28244,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _form_Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form/Form */ "./resources/js/components/form/Form.js");
-/* harmony import */ var _containers_requests_RequestListContaiiner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../containers/requests/RequestListContaiiner */ "./resources/js/containers/requests/RequestListContaiiner.js");
+/* harmony import */ var _containers_requests_RequestListContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../containers/requests/RequestListContainer */ "./resources/js/containers/requests/RequestListContainer.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../store */ "./resources/js/store.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -28288,7 +28288,7 @@ function (_React$Component) {
         store: _store__WEBPACK_IMPORTED_MODULE_4__["default"]
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: 'container'
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_form_Form__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_requests_RequestListContaiiner__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_form_Form__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_requests_RequestListContainer__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
     }
   }]);
 
@@ -28349,7 +28349,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        name: 'polynom_field',
+        name: 'palindrome_field',
         className: 'form'
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_form_InputContainer__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_form_SendRequestButtonContainer__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
@@ -28408,7 +28408,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: 'polynom-input-wrapper'
+        className: 'palindrome-input-wrapper'
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: 'input',
@@ -28485,7 +28485,7 @@ function (_React$Component) {
         type: 'submit',
         className: 'button',
         onClick: function onClick() {
-          _this.props.sendPolynom(url);
+          _this.props.sendPalindrome(url);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SVGicons_IconAdd__WEBPACK_IMPORTED_MODULE_1__["default"], {
         width: '32px'
@@ -28499,6 +28499,69 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (SendRequestButton);
+
+/***/ }),
+
+/***/ "./resources/js/components/requests/ListItem.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/requests/ListItem.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var ListItem =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ListItem, _React$Component);
+
+  function ListItem() {
+    _classCallCheck(this, ListItem);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ListItem).apply(this, arguments));
+  }
+
+  _createClass(ListItem, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        key: this.props.id,
+        className: 'request-list-item'
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: 'value'
+      }, " ", this.props.value, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: 'palindromes'
+      }, this.props.palindromes));
+    }
+  }]);
+
+  return ListItem;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (ListItem);
 
 /***/ }),
 
@@ -28548,8 +28611,10 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: 'requests'
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Request list"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: 'request-list'
-      }, "request list");
+      }, this.props.children));
     }
   }]);
 
@@ -28564,7 +28629,7 @@ function (_React$Component) {
 /*!****************************************************!*\
   !*** ./resources/js/constants/defaultConstants.js ***!
   \****************************************************/
-/*! exports provided: BASE_PATH, LOAD_ALL_REQUESTS, ALL_REQUESTS_IS_LOADING, LOAD_REQUEST_OF_POLYNOM, REQUEST_IS_ACCPETED, REQUEST_IS_LOADING, INPUT_CHANGES, DEFAULT_URL */
+/*! exports provided: BASE_PATH, LOAD_ALL_REQUESTS, ALL_REQUESTS_IS_LOADING, LOAD_REQUEST_OF_PALINDROME, REQUEST_IS_ACCPETED, REQUEST_IS_LOADING, INPUT_CHANGES, DEFAULT_URL */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -28572,7 +28637,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_PATH", function() { return BASE_PATH; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_ALL_REQUESTS", function() { return LOAD_ALL_REQUESTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_REQUESTS_IS_LOADING", function() { return ALL_REQUESTS_IS_LOADING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_REQUEST_OF_POLYNOM", function() { return LOAD_REQUEST_OF_POLYNOM; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOAD_REQUEST_OF_PALINDROME", function() { return LOAD_REQUEST_OF_PALINDROME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_IS_ACCPETED", function() { return REQUEST_IS_ACCPETED; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_IS_LOADING", function() { return REQUEST_IS_LOADING; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INPUT_CHANGES", function() { return INPUT_CHANGES; });
@@ -28581,9 +28646,9 @@ __webpack_require__.r(__webpack_exports__);
 var BASE_PATH = 'http://localhost:8000/api/'; //load requests
 
 var LOAD_ALL_REQUESTS = 'LOAD_ALL_REQUESTS';
-var ALL_REQUESTS_IS_LOADING = 'ALL_REQUESTS_IS_LOADING'; //consts of polynom request
+var ALL_REQUESTS_IS_LOADING = 'ALL_REQUESTS_IS_LOADING'; //consts of Palindrome request
 
-var LOAD_REQUEST_OF_POLYNOM = 'LOAD_REQUEST_OF_POLYNOM';
+var LOAD_REQUEST_OF_PALINDROME = 'LOAD_REQUEST_OF_Palindrome';
 var REQUEST_IS_ACCPETED = 'REQUEST_IS_ACCPETED';
 var REQUEST_IS_LOADING = 'REQUEST_IS_LOADING'; //input changes
 
@@ -28725,7 +28790,7 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_form_SendRequestButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
         isLoading: this.props.requestData,
-        sendPolynom: this.props.fetchNewPolynom
+        sendPalindrome: this.props.fetchNewPalindrome
       });
     }
   }]);
@@ -28735,14 +28800,14 @@ function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    requestData: state.fetchPolynomIsLoading
+    requestData: state.fetchPalindromeIsLoading
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    fetchNewPolynom: function fetchNewPolynom(url) {
-      return dispatch(Object(_actions_sendRequest__WEBPACK_IMPORTED_MODULE_3__["fetchOnePolynom"])(url));
+    fetchNewPalindrome: function fetchNewPalindrome(url) {
+      return dispatch(Object(_actions_sendRequest__WEBPACK_IMPORTED_MODULE_3__["fetchOnePalindrome"])(url));
     }
   };
 };
@@ -28751,10 +28816,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
-/***/ "./resources/js/containers/requests/RequestListContaiiner.js":
-/*!*******************************************************************!*\
-  !*** ./resources/js/containers/requests/RequestListContaiiner.js ***!
-  \*******************************************************************/
+/***/ "./resources/js/containers/requests/RequestListContainer.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/containers/requests/RequestListContainer.js ***!
+  \******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -28764,8 +28829,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _components_requests_RequestList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../components/requests/RequestList */ "./resources/js/components/requests/RequestList.js");
-/* harmony import */ var _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../constants/defaultConstants */ "./resources/js/constants/defaultConstants.js");
-/* harmony import */ var _actions_sendRequest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/sendRequest */ "./resources/js/actions/sendRequest.js");
+/* harmony import */ var _components_requests_ListItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../components/requests/ListItem */ "./resources/js/components/requests/ListItem.js");
+/* harmony import */ var _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../constants/defaultConstants */ "./resources/js/constants/defaultConstants.js");
+/* harmony import */ var _actions_sendRequest__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/sendRequest */ "./resources/js/actions/sendRequest.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28776,13 +28842,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -28796,21 +28865,41 @@ function (_React$Component) {
   _inherits(RequestListContainer, _React$Component);
 
   function RequestListContainer() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, RequestListContainer);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(RequestListContainer).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RequestListContainer)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "renderRequestList", function () {
+      return _this.props.data.map(function (listItem) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_requests_ListItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          id: listItem.id,
+          value: listItem.value,
+          palindromes: listItem.palindromes
+        });
+      });
+    });
+
+    return _this;
   }
 
   _createClass(RequestListContainer, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchData("".concat(_constants_defaultConstants__WEBPACK_IMPORTED_MODULE_3__["DEFAULT_URL"], "polynoms"));
+      this.props.fetchData("".concat(_constants_defaultConstants__WEBPACK_IMPORTED_MODULE_4__["DEFAULT_URL"], "palindromes"));
     }
   }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_requests_RequestList__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        listData: this.props.data
+        list: this.props.data && this.renderRequestList()
       });
     }
   }]);
@@ -28820,14 +28909,15 @@ function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    isLoading: state.allRequestsIsLoading
+    isLoading: state.allRequestsIsLoading,
+    data: state.fetchPalindromeList.data
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchData: function fetchData(url) {
-      return dispatch(Object(_actions_sendRequest__WEBPACK_IMPORTED_MODULE_4__["fetchPolynomList"])(url));
+      return dispatch(Object(_actions_sendRequest__WEBPACK_IMPORTED_MODULE_5__["fetchPalindromeList"])(url));
     }
   };
 };
@@ -28870,23 +28960,23 @@ var inputChanging = function inputChanging() {
 /*!******************************************************!*\
   !*** ./resources/js/reducers/requests/requstList.js ***!
   \******************************************************/
-/*! exports provided: fetchPolynomList, allRequestsIsLoading, fetchPolynom, fetchPolynomIsLoading, fetchPolynomIsAccepted */
+/*! exports provided: fetchPalindromeList, allRequestsIsLoading, fetchPalindrome, fetchPalindromeIsLoading, fetchPalindromeIsAccepted */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPolynomList", function() { return fetchPolynomList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPalindromeList", function() { return fetchPalindromeList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "allRequestsIsLoading", function() { return allRequestsIsLoading; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPolynom", function() { return fetchPolynom; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPolynomIsLoading", function() { return fetchPolynomIsLoading; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPolynomIsAccepted", function() { return fetchPolynomIsAccepted; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPalindrome", function() { return fetchPalindrome; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPalindromeIsLoading", function() { return fetchPalindromeIsLoading; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchPalindromeIsAccepted", function() { return fetchPalindromeIsAccepted; });
 /* harmony import */ var _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../constants/defaultConstants */ "./resources/js/constants/defaultConstants.js");
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-var fetchPolynomList = function fetchPolynomList() {
+var fetchPalindromeList = function fetchPalindromeList() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
   var _ref = arguments.length > 1 ? arguments[1] : undefined,
@@ -28920,7 +29010,7 @@ var allRequestsIsLoading = function allRequestsIsLoading() {
       return state;
   }
 };
-var fetchPolynom = function fetchPolynom() {
+var fetchPalindrome = function fetchPalindrome() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
   var _ref3 = arguments.length > 1 ? arguments[1] : undefined,
@@ -28928,7 +29018,7 @@ var fetchPolynom = function fetchPolynom() {
       type = _ref3.type;
 
   switch (type) {
-    case _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_0__["LOAD_REQUEST_OF_POLYNOM"]:
+    case _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_0__["LOAD_REQUEST_OF_PALINDROME"]:
       return _objectSpread({}, state, {
         data: data
       });
@@ -28937,7 +29027,7 @@ var fetchPolynom = function fetchPolynom() {
       return state;
   }
 };
-var fetchPolynomIsLoading = function fetchPolynomIsLoading() {
+var fetchPalindromeIsLoading = function fetchPalindromeIsLoading() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
   var _ref4 = arguments.length > 1 ? arguments[1] : undefined,
@@ -28954,7 +29044,7 @@ var fetchPolynomIsLoading = function fetchPolynomIsLoading() {
       return state;
   }
 };
-var fetchPolynomIsAccepted = function fetchPolynomIsAccepted() {
+var fetchPalindromeIsAccepted = function fetchPalindromeIsAccepted() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
   var _ref5 = arguments.length > 1 ? arguments[1] : undefined,
@@ -28990,11 +29080,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  fetchPolynomList: _requests_requstList__WEBPACK_IMPORTED_MODULE_1__["fetchPolynomList"],
+  fetchPalindromeList: _requests_requstList__WEBPACK_IMPORTED_MODULE_1__["fetchPalindromeList"],
   allRequestsIsLoading: _requests_requstList__WEBPACK_IMPORTED_MODULE_1__["allRequestsIsLoading"],
-  fetchPolynom: _requests_requstList__WEBPACK_IMPORTED_MODULE_1__["fetchPolynom"],
-  fetchPolynomIsAccepted: _requests_requstList__WEBPACK_IMPORTED_MODULE_1__["fetchPolynomIsAccepted"],
-  fetchPolynomIsLoading: _requests_requstList__WEBPACK_IMPORTED_MODULE_1__["fetchPolynomIsLoading"],
+  fetchPalindrome: _requests_requstList__WEBPACK_IMPORTED_MODULE_1__["fetchPalindrome"],
+  fetchPalindromeIsAccepted: _requests_requstList__WEBPACK_IMPORTED_MODULE_1__["fetchPalindromeIsAccepted"],
+  fetchPalindromeIsLoading: _requests_requstList__WEBPACK_IMPORTED_MODULE_1__["fetchPalindromeIsLoading"],
   inputChanging: _input_value__WEBPACK_IMPORTED_MODULE_2__["inputChanging"]
 }));
 

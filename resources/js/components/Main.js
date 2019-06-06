@@ -2,7 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux'
 
 import Form from './form/Form'
-import RequestListContainer from './../containers/requests/RequestListContaiiner';
+import RequestListContainer from '../containers/requests/RequestListContainer';
 
 import store from './../store';
 

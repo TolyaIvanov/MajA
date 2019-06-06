@@ -5,13 +5,13 @@
   align-items: center;
 }
 
-.form .polynom-input-wrapper {
+.form .palindrome-input-wrapper {
   height: 32px;
   margin: 30px 0 10px 0;
   width: inherit;
 }
 
-.form .polynom-input-wrapper .input {
+.form .palindrome-input-wrapper .input {
   padding: 0 8px;
   width: 100%;
   height: inherit;

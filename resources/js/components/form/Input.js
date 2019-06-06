@@ -3,7 +3,7 @@ import React from 'react'
 class Input extends React.Component{
 	render() {
 		return (
-			<div className={'polynom-input-wrapper'}>
+			<div className={'palindrome-input-wrapper'}>
 				<input
 					type="text"
 					className={'input'}

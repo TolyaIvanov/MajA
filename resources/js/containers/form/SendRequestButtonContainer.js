@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import SendRequestButton from './../../components/form/SendRequestButton'
 
 import {
-	fetchOnePolynom
+	fetchOnePalindrome
 } from "../../actions/sendRequest";
 
 class SendRequestButtonContainer extends React.Component {
@@ -12,18 +12,18 @@ class SendRequestButtonContainer extends React.Component {
 		return (
 			<SendRequestButton
 				isLoading={this.props.requestData}
-				sendPolynom={this.props.fetchNewPolynom}
+				sendPalindrome={this.props.fetchNewPalindrome}
 			/>
 		);
 	}
 }
 
 const mapStateToProps = (state) => ({
-	requestData: state.fetchPolynomIsLoading,
+	requestData: state.fetchPalindromeIsLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	fetchNewPolynom: (url) => dispatch(fetchOnePolynom(url))
+	fetchNewPalindrome: (url) => dispatch(fetchOnePalindrome(url))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SendRequestButtonContainer);

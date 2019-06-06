@@ -1,11 +1,11 @@
 import {combineReducers} from "redux";
 
 import {
-	fetchPolynomList,
+	fetchPalindromeList,
 	allRequestsIsLoading,
-	fetchPolynom,
-	fetchPolynomIsAccepted,
-	fetchPolynomIsLoading
+	fetchPalindrome,
+	fetchPalindromeIsAccepted,
+	fetchPalindromeIsLoading
 } from "./requests/requstList";
 
 import {
@@ -13,11 +13,11 @@ import {
 } from "./input/value";
 
 export default combineReducers({
-	fetchPolynomList,
+	fetchPalindromeList,
 	allRequestsIsLoading,
-	fetchPolynom,
-	fetchPolynomIsAccepted,
-	fetchPolynomIsLoading,
+	fetchPalindrome,
+	fetchPalindromeIsAccepted,
+	fetchPalindromeIsLoading,
 	inputChanging
 });
 

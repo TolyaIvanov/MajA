@@ -12,6 +12,5 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('/create', 'api\PolynomController@create');
-Route::get('/polynoms', 'api\PolynomController@showAll');
-Route::get('/check', 'api\PolynomController@check');
+Route::post('/create', 'api\PalindromesController@create');
+Route::get('/palindromes', 'api\PalindromesController@showAll');

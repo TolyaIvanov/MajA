@@ -6,7 +6,7 @@ import InputContainer from './../../containers/form/InputContainer';
 class Form extends React.Component {
 	render() {
 		return (
-			<form name={'polynom_field'} className={'form'}>
+			<form name={'palindrome_field'} className={'form'}>
 				<InputContainer/>
 				<SendRequestButtonContainer/>
 			</form>

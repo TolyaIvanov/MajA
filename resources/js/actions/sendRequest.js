@@ -1,15 +1,15 @@
 import {
-	fetchPolynom,
-	fetchPolynomIsLoading,
-	fetchPolynomIsAccepted,
+	fetchPalindrome,
+	fetchPalindromeIsLoading,
+	fetchPalindromeIsAccepted,
 
-	fetchPolynomListSuccess,
+	fetchPalindromeListSuccess,
 	allRequestsIsLoading,
 } from "./actionCreator";
 
 import store from './../store';
 
-export const fetchPolynomList = (url) => {
+export const fetchPalindromeList = (url) => {
 	return dispatch => {
 		dispatch(allRequestsIsLoading(true));
 
@@ -24,11 +24,11 @@ export const fetchPolynomList = (url) => {
 				return response;
 			}))
 			.then(response => response.json())
-			.then(data => dispatch(fetchPolynomListSuccess(data)));
+			.then(data => dispatch(fetchPalindromeListSuccess(data)));
 	}
 };
 
-export const fetchOnePolynom = (url) => {
+export const fetchOnePalindrome = (url) => {
 	return dispatch => {
 		const input = {
 			value: store.getState().inputChanging
@@ -38,7 +38,7 @@ export const fetchOnePolynom = (url) => {
 		event.preventDefault();
 
 		if (input.value.length >= 1) {
-			dispatch(fetchPolynomIsLoading(true));
+			dispatch(fetchPalindromeIsLoading(true));
 
 			fetch(url, {
 				method: 'POST',
@@ -52,13 +52,13 @@ export const fetchOnePolynom = (url) => {
 						throw Error(response.statusText)
 					}
 
-					dispatch(fetchPolynomIsLoading(false));
+					dispatch(fetchPalindromeIsLoading(false));
 					dispatch(fetchAccepted());
 
 					return response;
 				})
 				.then(response => response.json())
-				.then(data => dispatch(fetchPolynom(data)));
+				.then(data => dispatch(fetchPalindrome(data)));
 		}
 	}
 };
@@ -66,10 +66,10 @@ export const fetchOnePolynom = (url) => {
 
 export const fetchAccepted = () => {
 	return dispatch => {
-		dispatch(fetchPolynomIsAccepted(true));
+		dispatch(fetchPalindromeIsAccepted(true));
 
 		setTimeout(() => {
-			dispatch(fetchPolynomIsAccepted(false));
+			dispatch(fetchPalindromeIsAccepted(false));
 		}, 3000)
 	}
 };
