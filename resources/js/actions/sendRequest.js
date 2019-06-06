@@ -34,28 +34,32 @@ export const fetchOnePolynom = (url) => {
 			value: store.getState().inputChanging
 		};
 
+		input.value = input.value.trim();
 		event.preventDefault();
-		dispatch(fetchPolynomIsLoading(true));
 
-		fetch(url, {
-			method: 'POST',
-			body: JSON.stringify(input.value ? input : ''),
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		})
-			.then(response => {
-				if (!response.ok) {
-					throw Error(response.statusText)
+		if (input.value.length >= 1) {
+			dispatch(fetchPolynomIsLoading(true));
+
+			fetch(url, {
+				method: 'POST',
+				body: JSON.stringify(input.value ? input : ''),
+				headers: {
+					'Content-Type': 'application/json'
 				}
-
-				dispatch(fetchPolynomIsLoading(false));
-				dispatch(fetchAccepted());
-
-				return response;
 			})
-			.then(response => response.json())
-			.then(data => dispatch(fetchPolynom(data)));
+				.then(response => {
+					if (!response.ok) {
+						throw Error(response.statusText)
+					}
+
+					dispatch(fetchPolynomIsLoading(false));
+					dispatch(fetchAccepted());
+
+					return response;
+				})
+				.then(response => response.json())
+				.then(data => dispatch(fetchPolynom(data)));
+		}
 	}
 };
 

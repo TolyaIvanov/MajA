@@ -14,3 +14,4 @@ use Illuminate\Http\Request;
 */
 Route::post('/create', 'api\PolynomController@create');
 Route::get('/polynoms', 'api\PolynomController@showAll');
+Route::get('/check', 'api\PolynomController@check');

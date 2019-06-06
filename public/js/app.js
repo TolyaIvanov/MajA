@@ -28182,27 +28182,31 @@ var fetchOnePolynom = function fetchOnePolynom(url) {
     var input = {
       value: _store__WEBPACK_IMPORTED_MODULE_1__["default"].getState().inputChanging
     };
+    input.value = input.value.trim();
     event.preventDefault();
-    dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynomIsLoading"])(true));
-    fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(input.value ? input : ''),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(function (response) {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
 
-      dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynomIsLoading"])(false));
-      dispatch(fetchAccepted());
-      return response;
-    }).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      return dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynom"])(data));
-    });
+    if (input.value.length >= 1) {
+      dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynomIsLoading"])(true));
+      fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(input.value ? input : ''),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(function (response) {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+
+        dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynomIsLoading"])(false));
+        dispatch(fetchAccepted());
+        return response;
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        return dispatch(Object(_actionCreator__WEBPACK_IMPORTED_MODULE_0__["fetchPolynom"])(data));
+      });
+    }
   };
 };
 var fetchAccepted = function fetchAccepted() {
