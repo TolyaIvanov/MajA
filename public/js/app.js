@@ -28157,7 +28157,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchOnePalindrome", function() { return fetchOnePalindrome; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAccepted", function() { return fetchAccepted; });
 /* harmony import */ var _actionCreator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionCreator */ "./resources/js/actions/actionCreator.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../store */ "./resources/js/store.js");
+/* harmony import */ var _input_actionsCreator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./input/actionsCreator */ "./resources/js/actions/input/actionsCreator.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../store */ "./resources/js/store.js");
+
 
 
 var fetchPalindromeList = function fetchPalindromeList(url) {
@@ -28180,7 +28182,7 @@ var fetchPalindromeList = function fetchPalindromeList(url) {
 var fetchOnePalindrome = function fetchOnePalindrome(url) {
   return function (dispatch) {
     var input = {
-      value: _store__WEBPACK_IMPORTED_MODULE_1__["default"].getState().inputChanging
+      value: _store__WEBPACK_IMPORTED_MODULE_2__["default"].getState().inputChanging
     };
     input.value = input.value.trim();
     event.preventDefault();
@@ -28548,13 +28550,17 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        key: this.props.id,
         className: 'request-list-item'
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: 'value'
-      }, " ", this.props.value, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, " ", this.props.value, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: 'palindromes'
-      }, this.props.palindromes));
+      }, this.props.palindromes.map(function (pal) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: pal,
+          className: 'palindrome'
+        }, pal);
+      })));
     }
   }]);
 
@@ -28576,50 +28582,23 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
-
-var RequestList =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(RequestList, _React$Component);
-
-  function RequestList() {
-    _classCallCheck(this, RequestList);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(RequestList).apply(this, arguments));
-  }
-
-  _createClass(RequestList, [{
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: 'requests'
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Request list"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: 'request-list'
-      }, this.props.children));
-    }
-  }]);
-
-  return RequestList;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+var RequestList = function RequestList(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: 'requests'
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: 'title'
+  }, "Request list"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "columns-header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "value-title"
+  }, "Values"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "palindromes-title"
+  }, "Palindromes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: 'request-list'
+  }, props.children));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (RequestList);
 
@@ -28832,6 +28811,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_requests_ListItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../components/requests/ListItem */ "./resources/js/components/requests/ListItem.js");
 /* harmony import */ var _constants_defaultConstants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../constants/defaultConstants */ "./resources/js/constants/defaultConstants.js");
 /* harmony import */ var _actions_sendRequest__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/sendRequest */ "./resources/js/actions/sendRequest.js");
+/* harmony import */ var _actions_input_actionsCreator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/input/actionsCreator */ "./resources/js/actions/input/actionsCreator.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28851,6 +28831,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -28880,7 +28861,7 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "renderRequestList", function () {
       return _this.props.data.map(function (listItem) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_requests_ListItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          id: listItem.id,
+          key: listItem.id,
           value: listItem.value,
           palindromes: listItem.palindromes
         });
@@ -28898,9 +28879,16 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_requests_RequestList__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        list: this.props.data && this.renderRequestList()
-      });
+      var newCard = null;
+
+      if (this.props.newPalindrome) {
+        newCard = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_requests_ListItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          value: this.props.newPalindrome.value,
+          palindromes: this.props.newPalindrome.palindromes
+        });
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_requests_RequestList__WEBPACK_IMPORTED_MODULE_2__["default"], null, newCard, this.props.data && this.renderRequestList());
     }
   }]);
 
@@ -28910,7 +28898,8 @@ function (_React$Component) {
 var mapStateToProps = function mapStateToProps(state) {
   return {
     isLoading: state.allRequestsIsLoading,
-    data: state.fetchPalindromeList.data
+    data: state.fetchPalindromeList.data,
+    newPalindrome: state.fetchPalindrome.data
   };
 };
 

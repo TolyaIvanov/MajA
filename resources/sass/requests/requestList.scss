@@ -1,3 +1,35 @@
-.request-list {
-	margin-top: 25px;
+.requests {
+	width: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+
+	.columns-header {
+		display: flex;
+		width: inherit;
+	}
+
+	.value-title,
+	.palindromes-title,
+	.request-list .palindromes,
+	.request-list .value {
+		width: 400px;
+	}
+
+	.request-list {
+		margin-top: 25px;
+		width: inherit;
+		
+		.request-list-item {
+			display: flex;
+			align-items: center;
+			-webkit-box-shadow: 0 3px 6px -2px rgba(0, 0, 0, 0.75);
+			-moz-box-shadow: 0 3px 6px -2px rgba(0, 0, 0, 0.75);
+			box-shadow: 0 3px 6px -2px rgba(0, 0, 0, 0.75);
+			margin-bottom: 25px;
+			background-color: #fff;
+			border-radius: 8px;
+		}
+	}
 }

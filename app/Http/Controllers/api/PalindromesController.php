@@ -13,9 +13,6 @@ class PalindromesController extends Controller
         $value = $request->value;
         $palindromes = array_keys($this->getPalindromes($value));
         $isPalin = sizeof($palindromes) > 0 ? true : false;
-        $answer = [
-            'palindromes' => $palindromes,
-        ];
 
         $palindrome = new Palindrome([
             'value' => $value,
@@ -25,12 +22,12 @@ class PalindromesController extends Controller
 
         $palindrome->save();
 
-        return $answer;
+        return ['palindromes' =>$palindromes, 'value' => $value];
     }
 
     public function showAll()
     {
-        return Palindrome::all();
+        return Palindrome::orderBy('created_at', 'desc')->get();
     }
 
     private function getPalindromes($str)

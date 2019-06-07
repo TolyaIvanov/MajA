@@ -1,11 +1,20 @@
 import React from 'react'
 
-class ListItem extends React.Component{
+class ListItem extends React.Component {
 	render() {
 		return (
-			<li key={this.props.id} className={'request-list-item'}>
+			<li className={'request-list-item'}>
 				<div className={'value'}> {this.props.value} </div>
-				<div className={'palindromes'}>{ this.props.palindromes }</div>
+				<ul className={'palindromes'}>
+					{
+						this.props.palindromes.map((pal) => (
+								<li key={pal} className={'palindrome'}>
+									{pal}
+								</li>
+							)
+						)
+					}
+				</ul>
 			</li>
 		);
 	}

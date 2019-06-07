@@ -7,6 +7,10 @@ import {
 	allRequestsIsLoading,
 } from "./actionCreator";
 
+import {
+	inputChanging
+} from "./input/actionsCreator";
+
 import store from './../store';
 
 export const fetchPalindromeList = (url) => {
